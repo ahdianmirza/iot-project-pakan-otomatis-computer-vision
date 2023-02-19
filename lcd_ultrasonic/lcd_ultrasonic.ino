@@ -35,9 +35,31 @@ void loop() {
 
   distanceCm = (duration/2) / 27.6;
 
-  lcd.setCursor(0, 0);
-  lcd.print("Jarak: ");
+  if (distanceCm < 5) {
+    lcd.setCursor(0, 0);
+    lcd.print("Jarak: ");
 
-  lcd.setCursor(0, 1);
-  lcd.print(distanceCm);
+    lcd.setCursor(7, 0);
+    lcd.print(distanceCm);
+    delay(1000);
+
+    lcd.setCursor(0, 1);
+    lcd.print("Hampir Habis");
+    delay(500);
+
+    lcd.clear();
+  } else {
+    lcd.setCursor(0, 0);
+    lcd.print("Jarak: ");
+
+    lcd.setCursor(7, 0);
+    lcd.print(distanceCm);
+    delay(1000);
+
+    lcd.setCursor(0, 1);
+    lcd.print("Aman Cuyy");
+    delay(500);
+
+    lcd.clear();
+  }
 }
